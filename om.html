@@ -262,37 +262,23 @@
         }
 
         .btn {
-            width: 48px;
-            height: 48px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, #FFD700, #FF8C00);
+            border: none;
             cursor: pointer;
             outline: none;
-            font-size: 18px;
+            font-size: 22px;
             color: white;
             transition: all 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 10px;
         }
 
         .btn:hover {
             transform: scale(1.1);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-        }
-        
-        #play {
-            width: 60px;
-            height: 60px;
-            font-size: 22px;
-            background: linear-gradient(135deg, #FFD700, #FF8C00);
-            border: none;
-        }
-        
-        #play:hover {
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
         }
         
@@ -362,9 +348,7 @@
         </div>
         
         <div class="controls">
-            <button class="btn" id="next"><i class="fa-solid fa-arrow-left"></i></i></button>
             <button class="btn" id="play"><i class="fas fa-play"></i></button>
-            <button class="btn" id="next2"><i class="fa-solid fa-arrow-right"></i> </button>
         </div>
         
         <div class="volume-container">
@@ -378,8 +362,6 @@
     <script>
         const audio = document.getElementById('audio');
         const playBtn = document.getElementById('play');
-        const nextBtn = document.getElementById('next');
-        const nextBtn2 = document.getElementById('next2');
         const progressBar = document.getElementById('progress-bar');
         const progressContainer = document.getElementById('progress-container');
         const cover = document.getElementById('cover');
@@ -399,9 +381,6 @@
             title: "ॐ-OM",
             color: "#FFD700"
         };
-        
-        // Next page configuration - Change this to your next page URL
-        const nextPageUrl = "next_meditation.html";
         
         // Mythological symbols SVGs
         const mythSymbols = [
@@ -539,11 +518,6 @@
             isPlaying = false;
             playBtn.innerHTML = '<i class="fas fa-play"></i>';
         }
-    
-        function goToNextPage() {
-            // Navigate to the next page
-            window.location.href = nextPageUrl;
-        }
         
         // Format time to MM:SS
         function formatTime(seconds) {
@@ -555,10 +529,6 @@
         playBtn.addEventListener('click', () => {
             isPlaying ? pauseSong() : playSong();
         });
-    
-        // Navigate to next page
-        nextBtn.addEventListener('click', goToNextPage);
-        nextBtn2.addEventListener('click', goToNextPage);
     
         // Update progress bar
         audio.addEventListener('timeupdate', () => {
@@ -603,9 +573,6 @@
                     event.preventDefault();
                     isPlaying ? pauseSong() : playSong();
                     break;
-                case 'ArrowRight':
-                    goToNextPage();
-                    break;
                 case 'ArrowUp':
                     audio.volume = Math.min(1, audio.volume + 0.1);
                     volumeProgress.style.width = `${audio.volume * 100}%`;
@@ -615,11 +582,6 @@
                     volumeProgress.style.width = `${audio.volume * 100}%`;
                     break;
             }
-        });
-        
-        // When song ends, navigate to next page
-        audio.addEventListener('ended', () => {
-            goToNextPage();
         });
         
         // Add resize listener to recreate background
