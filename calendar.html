@@ -38,12 +38,32 @@
             background-color: #3E1F14;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
 
         .title {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
             color: #FFD700;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #5A3825;
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: #FFD700;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #FFD700;
+            color: #5A3825;
         }
 
         .calendar-container {
@@ -183,6 +203,7 @@
 <body>
     <div class="container">
         <div class="header">
+            <button class="home-button" onclick="window.location.href='index.html'">Home</button>
             <h1 class="title">Cosmic Frequency Calendar</h1>
         </div>
         <div id="calendar" class="calendar-container"></div>
@@ -199,6 +220,7 @@
     </div>
 
     <script>
+        
         const frequencies = [
             { day: 1, freq: 174, desc: "Relieves pain and stress", fullDesc: "The 174 Hz frequency is associated with healing and pain relief. It is believed to reduce stress and provide a sense of security and comfort." },
             { day: 2, freq: 285, desc: "Healing and rejuvenation", fullDesc: "The 285 Hz frequency is linked to healing and cellular regeneration. It is thought to help repair tissue and promote overall physical healing." },
