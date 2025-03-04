@@ -32,30 +32,23 @@
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
 
         .header {
             background-color: #3E1F14;
             padding: 20px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .title {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
             color: #FFD700;
-            margin-bottom: 10px;
         }
 
         .calendar-container {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
+            grid-gap: 10px;
             padding: 20px;
         }
 
@@ -68,6 +61,8 @@
             transition: all 0.3s ease;
             cursor: pointer;
             color: #FFD700;
+            display: flex;
+            flex-direction: column;
         }
 
         .day:hover {
@@ -87,7 +82,7 @@
 
         .description {
             font-size: 0.7rem;
-            opacity: 0.8;
+            margin-top: 5px;
         }
 
         .modal {
@@ -126,23 +121,61 @@
             cursor: pointer;
         }
 
-        @media (max-width: 768px) {
+        /* Responsive Styles */
+        @media screen and (min-width: 1200px) {
             .calendar-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .title {
-                font-size: 1.8rem;
+                grid-template-columns: repeat(7, 1fr);
             }
         }
 
-        @media (max-width: 480px) {
+        @media screen and (min-width: 992px) and (max-width: 1199px) {
+            .calendar-container {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+            .calendar-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .title {
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (min-width: 576px) and (max-width: 767px) {
+            .calendar-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .title {
+                font-size: 1.8rem;
+            }
+            .day-number {
+                font-size: 1rem;
+            }
+            .frequency {
+                font-size: 0.8rem;
+            }
+            .description {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media screen and (max-width: 575px) {
             .calendar-container {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .title {
                 font-size: 1.5rem;
+            }
+            .day-number {
+                font-size: 0.9rem;
+            }
+            .frequency {
+                font-size: 0.7rem;
+            }
+            .description {
+                font-size: 0.5rem;
             }
         }
     </style>
