@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmic Frequency Calendar</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
@@ -198,12 +199,24 @@
                 font-size: 0.5rem;
             }
         }
+        .home-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+    
+        .home-button i {
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <button class="home-button" onclick="window.location.href='index.html'">Home</button>
+            <button class="home-button" onclick="window.location.href='index.html'">
+                <i class="fas fa-home"></i>
+            </button>
             <h1 class="title">Cosmic Frequency Calendar</h1>
         </div>
         <div id="calendar" class="calendar-container"></div>
